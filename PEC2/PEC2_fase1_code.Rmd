@@ -154,12 +154,27 @@ if (is.null(extraction_list[[i]]) == FALSE) {
 # List into vector of genes
 genes_vector <- unlist(extraction_list)
 
-# Generate dataframe with pmid, symbol, and geneID in different columns  ###INCOMPLETE ###
-genes_dataframe <- data.frame(Symbol = genes_vector,
+# Generate dataframe with pmid, gene name, and geneID in different columns  ###INCOMPLETE ###
+genes_dataframe <- data.frame(PMID = genes_vector,
                               stringsAsFactors = FALSE)
-genes_dataframe$GeneID <- sub(pattern = "[[:print:]]*>",
+
+genes_dataframe$Gene_ID <- sub(pattern = "[[:print:]]*>",
                               replacement = "",
-                              genes_dataframe$Symbol)
+                              genes_dataframe$PMID)
+
+genes_dataframe$Gene_name <- sub(pattern = ">[[:digit:]]*",
+                                 replacement = "",
+                                 sub(pattern = "[[:digit:]]*>",
+                                  replacement = "",
+                                  genes_dataframe$PMID))
+
+genes_dataframe$PMID <- sub(pattern = ">[[:print:]]*",
+                              replacement = "",
+                              genes_dataframe$PMID)
+
+# Delete duplicated pmid-geneid files
+
+genes_dataframe <- genes_dataframe[!duplicated(genes_dataframe[, c("Gene_ID", "PMID")]), ]
 ```
 
 
