@@ -380,12 +380,13 @@ P.hyp <- ( 1 - phyper(q, m, n, k))
 
 ## Implementation of the test
 # Variables
-gen_df <- as.data.frame(last_genes,
-                        stringsAsFactors = FALSE)
-gen_df$Freq <- as.integer(gen_df$Freq)
-i <- gen_df$Freq[1]
+i <- table(genes_dataframe$Gene_ID)[[1]]
 q <- i - 1
+m <- geneID_frequencies[[names(table(genes_dataframe$Gene_ID)[1])]]
+n <- 33e6 - m
+k <- sum(!duplicated(last_abstracts@PMID))
 
+P.hyp <- ( 1 - phyper(q, m, n, k))
 ```
 
 
