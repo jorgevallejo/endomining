@@ -1,0 +1,165 @@
+# Previo
+
+- Artículos endometriosis
+  * Ya he descargado varios, me falta leerlos, anotarlos y extraer datos.
+DONE - Paquetes minería de texto para R
+  * He preguntado en Reddit, Slack y Biostars; me falta recoger las respuestas y escribir agradecimientos. --> easyPubmed, pubmed.mineR, lsa, bibliometrix,rentrez, tidytext, RISmed, tm
+- Shiny
+- Renv
+- Rnw
+DONE - Diagrama de Gantt
+
+# Comienzo del curso
+
+DONE 1. Leer plan docente
+DONE 2. Mirar calendario para la entrega de las PEC
+DONE 3. Guión propuesta TFM
+  * Título
+  * Palabras clave
+  * Temática escogida
+  * Problemática a resolver
+  * Objetivos
+  * Bibliografía
+IGNORE 4. Correcciones a la propuesta de TFM
+  1. DONE Elimino subtítulo para que el texto tenga un aspecto más sencillo.
+  2. DONE Traduzco palabra clave "data mining" a "minería de textos"
+  3. Citas como número, no como nombre más fecha.
+  4. DONE Lo que tenía escrito en la sección 'Problemática a resolver' lo elimino de este documento y lo guardaré para la metodología.
+  5. DONE Varios párrafos de la sección 'Temática escogida' los muevo a la sección 'Problemática a resolver'.
+  6. DONE Concreción y simplificación de los objetivos.
+
+DONE Lee el detalle de evaluación enviado por Romina.
+
+DONE # PEC1 - Entregada
+
+  DONE 1. Definir líneas generales proyecto y enfoque
+    DONE 1.1 Descripción general
+    DONE 1.2 Justificación del TFM
+  DONE 2. Objetivos de forma clara y no ambigua.
+  DONE 2 bis. Enfoque y método a seguir.
+  DONE 3. Establecer temporalización apropiada del pryecto.
+  DONE 4. Definir y valorar los riesgos y determinar acciones de mitigación.
+
+DONE  * Quitar la sección informe de autoevaluzción de la sección de resultados esperados.
+
+
+DONE Leer los documentos de los recursos de aprendizaje.
+IGNORE Esquema con los puntos más importantes de los documentos anteriores.
+
+DONE Leer los documentos de ayuda
+
+ * DONE Criterios evaluación
+ * DONE PEC1_TFM_PlanTrabajo
+ * DONE TFM_Plantilla_Memoria
+
+DONE ## Modificaciones al primer borrador de la PEC1
+DONE 1. Incluir dentro de los objetivos "identificar factores ambientales"
+  * Busca listados de factores ambientales que influyen en enfermedades. Si no, no se podrá automatizar el proceso. ¿Dónde buscar?
+    * UMLS
+    * MESH terms
+DONE 2. Breve reseña sobre qué otras estrategias existen para identificar genes vinculados a la enfermedad, y por qué me he decidido por esta.
+DONE 3. Recuperar el texto de la PEC desde Google Docs a un archivo Rmd que pueda transformar en archivo PDF. (Pero no exactamente. Sí que he conseguido un paquete que desde el documento Rmd publica en Google Docs, pero a la inversa se pierde demasiada información).
+DONE 4. Aplicar diferentes cambios menores en la última parte de la PEC 1.
+
+DONE Publicar las imágenes on-line para enlazarlas en Google Docs. (No necesario, subo las imágenes directamente a Google Docs)
+
+DONE # PEC2
+
+## Shiny app
+  ## Features
+  DONE - Tabs
+  - Aesthetics -> Dashboard
+  - Filtro hipergeométrico para los genes
+  DONE - Enlaces a los artículos en PubMed
+  DONE - Enlaces a los genes en [algún sitio]
+  DONE - Las tablas de palabras y genes no deben mostrarlos todos,
+  sino poder navegarse por páginas.
+
+  ## Dibujar esquema reactivo de la aplicación
+
+  ## Issues
+  - Mensaje de aviso cuando no se recupera ningún gen
+  - Go term hyperlink da un error (aunque luego funciona)
+  - Comprobar si Enrichr está on-line y mensaje de error si no lo está (baja prioridad)
+  - El botón de descarga de términos GO funciona bien en local, pero en el servidor sólo descarga datos de Componentes celulares.
+
+## Hipergeométrica
+  DONE - Uno de los TFMs la tiene implementada (NO)
+  - Compara el formato de los datos que usa la app con el de los que
+     usa el test. Creo que la app usa el símbolo HGNC mientras que el test
+     "funciona" con los geneID.
+  - Unir símbolo del gen con GeneID. -> packages AnnotationDbi, annotate, biomaRt (https://rjbioinformatics.com/2016/07/04/converting-gene-names-in-r-with-annotationdbi/)
+  - Test hipergeométrica para vector de pmids
+
+## Risk factors
+  DONE - Descarga las webs
+  - Recopila los factores de riesgo en una lista
+
+DONE ## Texto real para la PEC2 siguiendo el ejemplo
+  DONE - 0. Portada
+  DONE - 1. Descripción del avance del proyecto.
+  DONE - 2. Relación de las actividades realizadas.
+  DONE - 3. Relación de desviaciones
+  DONE - 4. Listado de resultado parciales
+  DONE - Release new version del informe
+  DONE - Comprueba que tengo todos los apartados explicitados en el enunciado.
+  DONE - Corrección ortográfica.
+
+DONE # PEC 3
+  ## Informe  \
+  DONE - 0. Portada y secciones  \
+  - 1. Descripción del avance del proyecto.
+  - 2. Relación de las actividades realizadas.
+  - 3. Relación de desviaciones
+  - 4. Listado de resultado parciales
+  - Release new version del informe
+  - Comprueba que tengo todos los apartados explicitados en el enunciado.
+  - Corrección ortográfica.
+
+  ## Shiny app
+
+  DONE - Definir esquema aplicaciones web.
+
+  ## Features
+    DONE - Página de visualización de abstracts
+      DONE - En shiny app, separa página búsqueda de página visualización (Tabsets)
+      DONE - Implementa resultados búsqueda con renderTable
+      DONE - Mostrar el texto de consulta
+      DONE - Aviso cuando desde es mayor que hasta (fechas).
+      DONE - Aviso cuando no se han escrito palabras clave.
+      DONE - Casilla para ignorar el rango de fechas
+      DONE - Cambio de layout: link a PubMed *encima* del sumario.
+      DONE - Documenta en PEC3.
+      XXXX - Documenta en la memoria
+      DONE - Release both documents. XXX No, la memoria va en formato docx y es una plantilla así que voy a seguir otra estrategia con ella. XXX
+      DONE - Deploy
+    DONE - Caracterización de la lista de genes
+      DONE - Averiguar qué paquete me puede servir
+      DONE - Explorar paquete y funciones (qué información hay que suministrarle)
+      DONE - Genera y guarda resultados como csv files
+      done - Redirige todas las direcciones de PEC2_fase1_script.R a una carpeta de resultados en la raíz del proyecto en lugar de dentro de la carpeta PEC2.
+      DONE - Genera gráficas de resultados GO.
+      DONE - Simplifica los resultados con simplify.
+      DONE - Implent in shiny app.
+        DONE - Genera tab especifica
+	DONE - Selección de opciones (BP-CC-MF, p-value, q-value, adjusted p-value, simplificar.
+	DONE - Botón de acción
+	DONE - Test de enriquecimiento para todos los aspectos funcionales
+	ESTO NO LO PUEDO HACER FÁCILMENTE CON ENRICHR - Simplificar resultados
+	DONE - Dibujo de gráficas
+	DONE - Número de resultados en la gráfica.
+	DONE -Tabla de resultados.
+	DONE - Enlace al término GO
+      DONE - No olvides citar XclusterProfilerX enrichR y Enrich al documentar esta funcionalidad.
+
+  # Memoria
+    DONE - Mover 'PubMed', 'Minería de textos' y 'Shiny' de Estado del Arte a Metodología.
+    DONE - Sección de "Enriquecimiento" en METODOLOGÍA.
+    DONE - Comentar los artículos ya existentes en ESTADO DEL ARTE.
+    DONE - Para la sección RESULTADOS, generar ejemplo de uso.
+
+# Próximos pasos
+	- Readme / Documentación / Ayuda
+	- Traducción a inglés
+	- Implementar las partes que faltan (ver secciones anteriores)
+	- Reparar bugs (¿los viernes?)
